@@ -67,3 +67,5 @@ gem "simple_form", "~> 4.1"
 gem "pg", "~> 1.1"
 
 gem "devise", "~> 4.5"
+
+gem "travis", "~> 1.8"
