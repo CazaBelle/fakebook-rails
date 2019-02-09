@@ -1,25 +1,32 @@
 class PostsController < ApplicationController
 
-  def index
-    # @post = Post.new
-  end
-
   def new
     @post = Post.new
+    @user = current_user
+  end
+  
+  def index
+    @post = Post.new
+    @user = current_user
+    @posts = Post.all 
+    @user = User.find(current_user.id)
   end
 
-  def show
-    @posts = Post.all
-  end 
-  
   def create
     @post = current_user.posts.build(post_params)
       if @post.save
-      redirect_to @post, notice: "Post successful"
+      redirect_to posts_path, notice: "Post successful"
     else
       render 'new'
     end
   end
+
+ 
+  #should be individual post
+  def show
+    @posts = Post.all
+  end 
+  
 
   def edit
   end

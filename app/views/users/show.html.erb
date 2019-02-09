@@ -1,5 +1,4 @@
-
-<h1 class="text-center">Welcome <%= @user.email%></h1>
+<h1 class="text-center">Welcome <%=current_user.email%></h1>
 
 <h1>Post</h1>
 <%= render 'form'%>
