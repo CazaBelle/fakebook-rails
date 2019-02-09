@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature do 
+RSpec.feature '#Sign-in' do 
 
 scenario 'user can signin' do 
   signup_and_click
