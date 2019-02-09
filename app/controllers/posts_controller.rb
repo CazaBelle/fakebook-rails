@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     @post = Post.new
     @user = current_user
     @posts = Post.all 
-    @user = User.find(current_user.id)
   end
 
   def create
@@ -21,13 +20,10 @@ class PostsController < ApplicationController
     end
   end
 
- 
   #should be individual post
   def show
-    @posts = Post.all
   end 
   
-
   def edit
   end
 

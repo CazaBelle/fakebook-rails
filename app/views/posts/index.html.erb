@@ -4,7 +4,7 @@
 <h1>Post</h1>
 <%= render 'form'%>
 
-<% @posts.reverse.each do |p|%>
+<% @user.posts.reverse.each do |p|%>
   <p class="text-center"><%=p.content %></p>
   <p class="text-center"><%= p.created_at%></p>
   <p class="text-center">Add comment</p>
