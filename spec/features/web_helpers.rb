@@ -9,7 +9,7 @@ end
 
 def signin_and_click 
   visit '/'
-  click_on 'Log in'
+  click_on 'Log In'
   fill_in 'user_email', with: 'test@test.com'
   fill_in 'user_password', with: 'secret1234'
   click_on 'Log in'

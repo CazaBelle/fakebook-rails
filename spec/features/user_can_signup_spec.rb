@@ -16,7 +16,4 @@ RSpec.feature '#Signup' do
     expect(page).to have_content 'Welcome! You have signed up successfully'  
   end
  
-  scenario 'user can signin' do 
-  end 
-
 end
