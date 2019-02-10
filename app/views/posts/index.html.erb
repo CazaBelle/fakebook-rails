@@ -1,11 +1,31 @@
 
-<h1 class="text-center">Welcome <%= @user.email%></h1>
+<h1 class="text-center">Welcome <%= current_user.email%></h1>
 
 <h1>Post</h1>
-<%= render 'form'%>
+rspex<%= render 'form'%>
 
-<% @user.posts.reverse.each do |p|%>
+<% current_user.posts.reverse.each do |p|%>
   <p class="text-center"><%=p.content %></p>
-  <p class="text-center"><%= p.created_at%></p>
-  <p class="text-center">Add comment</p>
-<% end %>
+  <p class="text-center"><%= p.created_at.strftime("%H:%M:%S - %d/%m/%y")%></p>
+  <% if current_user.id == p.user_id %>
+  
+    <p class="text-center">
+      <%= link_to 'Edit', edit_post_path(p) %> |
+      <%= link_to 'Delete', p, method: :delete, data: {confirm: "Are you sure?"} %>
+    </p>
+
+  <% p.comments.reverse.each do |c|%>
+    <p class="text-center"><%=c.body %></p>
+    <p class="text-center"><%= c.created_at.strftime("%H:%M:%S - %d/%m/%y")%></p>
+
+  <%end%>
+
+    <%= simple_form_for @comment do |f| %>
+      <%= f.input :body %>
+      <%= f.button :submit, class: "btn btn-info" %>
+      <%= hidden_field_tag :original_post, p.id%>
+    <% end %>
+
+
+      <% end %>
+  <% end %>

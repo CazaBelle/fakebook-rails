@@ -23,3 +23,8 @@ def second_user_signup_and_click
   fill_in 'user_password_confirmation', with: 'secret1234'
   click_on 'Sign up'
 end
+
+def create_a_message
+  fill_in 'post_content', with: 'Test Message'
+  click_on 'Create Post'
+end

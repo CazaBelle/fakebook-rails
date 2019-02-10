@@ -7,11 +7,13 @@ class PostsController < ApplicationController
   
   def index
     @post = Post.new
-    @user = current_user
-    @posts = Post.all 
+    # @posts = Post.all
+    @comment = Comment.new 
+    @comments = Comment.all
   end
 
   def create
+   
     @post = current_user.posts.build(post_params)
       if @post.save
       redirect_to posts_path, notice: "Post successful"
