@@ -5,6 +5,7 @@ RSpec.feature '#Comment' do
     signup_and_click
     create_a_message
     fill_in 'comment_body', with: 'Test Comment'
+    click_on 'Create Comment'
     expect(page).to have_content 'Test Comment'
   end 
 end 

@@ -9,9 +9,10 @@ class UsersController < ApplicationController
   def show
     @post = Post.new
     @posts = Post.all 
-    @user = current_user
-  
+    @user = User.find(params[:id])
   end 
+
+  
 
 
 

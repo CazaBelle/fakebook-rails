@@ -13,7 +13,6 @@ class PostsController < ApplicationController
   end
 
   def create
-   
     @post = current_user.posts.build(post_params)
       if @post.save
       redirect_to posts_path, notice: "Post successful"
@@ -24,6 +23,7 @@ class PostsController < ApplicationController
 
   #should be individual post
   def show
+    @user = User.find(params[:id])
   end 
   
   def edit

@@ -1,12 +1,13 @@
 
-<h1 class="text-center">Welcome <%= current_user.email%></h1>
+<h1 class="text-center">Welcome <%= @user.email%></h1>
 
 <h1>Post</h1>
-rspex<%= render 'form'%>
+<%= render 'form'%>
 
 <% current_user.posts.reverse.each do |p|%>
-  <p class="text-center"><%=p.content %></p>
+  <p class="text-center"><%= p.content %></p>
   <p class="text-center"><%= p.created_at.strftime("%H:%M:%S - %d/%m/%y")%></p>
+  
   <% if current_user.id == p.user_id %>
   
     <p class="text-center">
